@@ -4,23 +4,23 @@ import {MoneyType} from "./App";
 import styled from "styled-components";
 
 type CityPropsType = {
-    data: any //встречаем денюжки
+    data: MoneyType[]
 }
 
-export const City = () => {
+export const City = ({data}:CityPropsType) => {
 // с деструктуризацией пожалуйста
 
 
-    // const mappedMoney = props.data.map((el: MoneyType, index) => (
-    //     <CurrentBankomat
-    //         key={el.id}
-    //         money={el}
-    //     />
-    // ))
+    const mappedMoney = data.map((el: MoneyType, index) => (
+        <CurrentBankomat
+            key={el.id}
+            money={el}
+        />
+    ))
 
     return (
         <Wrapper>
-         Одна банконота-одна компонента
+            {mappedMoney}
         </Wrapper>
     );
 };
